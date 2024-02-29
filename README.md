@@ -1,4 +1,4 @@
-# Phase 4 Full-Stack Application Product Template
+# TrueRateMeGames
 
 ## Concept
 
@@ -39,6 +39,8 @@ Videogame library site
 - Able to see your online / offline / idle status
 
 - Able to upload user profile pics
+
+- Able to login using a google account (OAuth 2.0)
 
 ## MVP / Skateboard
 
