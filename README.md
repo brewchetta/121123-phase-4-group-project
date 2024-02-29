@@ -42,7 +42,7 @@ Videogame library site
 
 - Able to login using a google account (OAuth 2.0)
 
-## MVP / Skateboard
+## MVP / Skateboard Goals
 
 - Login / Signup
 
@@ -55,3 +55,29 @@ Videogame library site
 - CRUD for games
 
 - Rate and comment on a game (frontend and backend)
+
+## Stretch Goals
+
+- Google OAuth
+
+- User profile pictures
+
+- User online status
+
+- Different visualizations for gaming library
+
+- Games search (including backend routing)
+
+- Links to buy game
+
+- Youtube trailer
+
+- Streamers for games
+
+- Platform feeds
+
+## Internal Project Resources
+
+[Trello Board](https://trello.com/b/4I8yN1JX/121123-phase-4-project) - Daily tickets
+
+[dbdiagram](https://dbdiagram.io/d/65e09df5cd45b569fb390602) - Model relationships
