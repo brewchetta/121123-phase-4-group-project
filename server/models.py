@@ -28,6 +28,7 @@ class User(db.Model, SerializerMixin):
     ratings = db.relationship("Rating", back_populates="game")
     games = association_proxy("ratings", "game")
 
+
 class Game(db.Model, SerializerMixin):
     __tablename__ = "games_table"
 
@@ -39,6 +40,13 @@ class Game(db.Model, SerializerMixin):
 
     ratings = db.relationship("Rating", back_populates="user")
     users = association_proxy("ratings", "user")
+
+    game_genres = db.relationship("GameGenre", back_populates="game")
+    genres = association_proxy("game_genres", "genre")
+
+    game_platforms = db.relationship("GamePlatform", back_populates="game")
+    platforms = association_proxy("game_platforms", "platform")
+
 
 class Rating(db.Model, SerializerMixin):
     __tablename__ = "ratings_table"
@@ -54,3 +62,45 @@ class Rating(db.Model, SerializerMixin):
 
     game = db.relationship("Game", back_populates="ratings")
     user = db.relationship("User", back_populates="ratings")
+
+
+class Genre(db.Model, SerializerMixin):
+    __tablename__ = "genres_table"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, unique=True, nullable=False)
+
+    game_genres = db.relationship("GameGenre", back_populates="genre")
+    games = association_proxy("game_genres", "game")
+
+
+class GameGenre(db.Model, SerializerMixin):
+    __tablename__ = "game_genres_table"
+
+    id = db.Column(db.Integer, primary_key=True)
+    game_id = db.Column(db.Integer, db.ForeignKey("games_table.id"))
+    genre_id = db.Column(db.Integer, db.ForeignKey("genres_table.id"))
+
+    game = db.relationship("Game", back_populates="game_genres")
+    genre = db.relationship("Genre", back_populates="game_genres")
+
+
+class Platform(db.Model, SerializerMixin):
+    __tablename__ = "platforms_table"
+
+    id = db.Column(db.Integer, primary_key=True)
+    system_name = db.Column(db.String, unique=True, nullable=False)
+
+    game_platforms = db.relationship("GamePlatform", back_populates="platform")
+    games = association_proxy("game_platforms", "game") 
+
+
+class GamePlatform(db.Model, SerializerMixin):
+    __tablename__ = "game_platforms_table"
+
+    id = db.Column(db.Integer, primary_key=True)
+    game_id = db.Column(db.Integer, db.ForeignKey("games_table.id"))
+    platform_id = db.Column(db.Integer, db.ForeignKey("platforms_table"))
+
+    game = db.relationship("Game", back_populates="game_platforms")
+    platform = db.relationship("Platform", back_populates="game_platforms")
