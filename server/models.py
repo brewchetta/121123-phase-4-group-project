@@ -26,9 +26,8 @@ class User(db.Model, SerializerMixin):
     ratings = db.relationship("Rating", back_populates="user")
     games = association_proxy("ratings", "game")
 
-
-
     serialize_rules = ("-ratings.user", "-game")
+
 
 
 class Game(db.Model, SerializerMixin):
@@ -52,6 +51,9 @@ class Game(db.Model, SerializerMixin):
 
 
     serialize_rules = ("-ratings.game", "user")
+    serialize_rules = ("-game_genres.game", "-genres")
+    serialize_rules = ("-game_platforms.game", "-platforms")
+
 
 
 class Rating(db.Model, SerializerMixin):
@@ -82,6 +84,9 @@ class Genre(db.Model, SerializerMixin):
     game_genres = db.relationship("GameGenre", back_populates="genre")
     games = association_proxy("game_genres", "game")
 
+    serialize_rules = ("-game_genres.genre", "-games")
+
+
 
 class GameGenre(db.Model, SerializerMixin):
     __tablename__ = "game_genres_table"
@@ -93,6 +98,9 @@ class GameGenre(db.Model, SerializerMixin):
     game = db.relationship("Game", back_populates="game_genres")
     genre = db.relationship("Genre", back_populates="game_genres")
 
+    serialize_rules = ("-game.game_genres", "-genre.game_genres")
+
+
 
 class Platform(db.Model, SerializerMixin):
     __tablename__ = "platforms_table"
@@ -102,6 +110,9 @@ class Platform(db.Model, SerializerMixin):
 
     game_platforms = db.relationship("GamePlatform", back_populates="platform")
     games = association_proxy("game_platforms", "game") 
+
+    serialize_rules = ("-game_platforms.platform", "-games")
+
 
 
 class GamePlatform(db.Model, SerializerMixin):
@@ -113,6 +124,8 @@ class GamePlatform(db.Model, SerializerMixin):
 
     game = db.relationship("Game", back_populates="game_platforms")
     platform = db.relationship("Platform", back_populates="game_platforms")
+
+    serialize_rules = ("-game.game_platforms", "-platform.game_platforms")
 
     
 
