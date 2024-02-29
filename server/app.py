@@ -1,21 +1,21 @@
 #!/usr/bin/env python3
 
-# Standard library imports
-
-# Remote library imports
+# library imports
 from flask import request
-from flask_restful import Resource
 
-# Local imports
-from config import app, db, api
+# local imports
+from config import create_app, db, api
+
 # Add your model imports
 
+# instantiate app
+app = create_app()
 
-# Views go here!
+# routes go here
 
 @app.route('/')
 def index():
-    return '<h1>Project Server</h1>'
+    return '<h1>121123 Phase 4 Project/Product</h1>'
 
 
 if __name__ == '__main__':
