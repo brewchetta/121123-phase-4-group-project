@@ -28,6 +28,8 @@ class User(db.Model, SerializerMixin):
     ratings = db.relationship("Rating", back_populates="game")
     games = association_proxy("ratings", "game")
 
+    serialize_rules = ("-ratings.user", "-game")
+
 class Game(db.Model, SerializerMixin):
     __tablename__ = "games_table"
 
@@ -39,6 +41,8 @@ class Game(db.Model, SerializerMixin):
 
     ratings = db.relationship("Rating", back_populates="user")
     users = association_proxy("ratings", "user")
+
+    serialize_rules = ("-ratings.game", "user")
 
 class Rating(db.Model, SerializerMixin):
     __tablename__ = "ratings_table"
@@ -54,3 +58,5 @@ class Rating(db.Model, SerializerMixin):
 
     game = db.relationship("Game", back_populates="ratings")
     user = db.relationship("User", back_populates="ratings")
+
+    serialize_rules = ("-game.ratings", "-user.ratings")
