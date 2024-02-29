@@ -53,5 +53,3 @@ Videogame library site
 - CRUD for games
 
 - Rate and comment on a game (frontend and backend)
-
-- 
