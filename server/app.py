@@ -4,9 +4,10 @@
 from flask import request
 
 # local imports
-from config import create_app, db, api
+from config import create_app
 
 # Add your model imports
+from models import Rating, Game, User, db
 
 # instantiate app
 app = create_app()

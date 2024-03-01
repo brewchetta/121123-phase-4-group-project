@@ -4,8 +4,6 @@ from sqlalchemy.orm import validates
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
 
-from config import db
-
 metadata = MetaData(naming_convention={
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
 })
@@ -21,11 +19,11 @@ class User(db.Model, SerializerMixin):
     date_of_birth = db.Column(db.String)
     favorite_platform = db.Column(db.String)
     online_status = db.Column(db.String)
-    profile_pictures = db.Column(db.String)
-    created_at = db.Column(db.Datetime)
-    updated_at = db.Column(db.Datetime)
+    profile_picture = db.Column(db.String)
+    created_at = db.Column(db.DateTime, )
+    updated_at = db.Column(db.DateTime)
 
-    ratings = db.relationship("Rating", back_populates="game")
+    ratings = db.relationship("Rating", back_populates="user")
     games = association_proxy("ratings", "game")
 
     serialize_rules = ("-ratings.user", "-game")
@@ -39,7 +37,7 @@ class Game(db.Model, SerializerMixin):
     image_url = db.Column(db.String)
     description = db.Column(db.String)
 
-    ratings = db.relationship("Rating", back_populates="user")
+    ratings = db.relationship("Rating", back_populates="game")
     users = association_proxy("ratings", "user")
 
     serialize_rules = ("-ratings.game", "user")
@@ -50,8 +48,8 @@ class Rating(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     rating = db.Column(db.Integer)
     comment = db.Column(db.String)
-    created_at = db.Column(db.Datetime)
-    updated_at = db.Column(db.Datetime)
+    created_at = db.Column(db.DateTime)
+    updated_at = db.Column(db.DateTime)
 
     game_id = db.Column(db.Integer, db.ForeignKey("games_table.id"))
     user_id = db.Column(db.Integer, db.ForeignKey("users_table.id"))
