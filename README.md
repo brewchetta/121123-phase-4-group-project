@@ -52,6 +52,9 @@ Videogame library site
 
 - Game model
 
+
+To do "npm install" you must put "--prefix client" at the end of the npm install. Same for npm start or any other npm commands. 
+
 - CRUD for games
 
 - Rate and comment on a game (frontend and backend)
