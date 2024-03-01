@@ -7,7 +7,7 @@ from flask_restful import Api, Resource
 from models import db, User, Game, Rating
 
 # local imports
-from config import create_app, db, api
+from config import create_app, db
 
 # Add your model imports
 
