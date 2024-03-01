@@ -4,7 +4,7 @@
 from flask import request
 
 # local imports
-from config import create_app, db, api
+from config import create_app, db
 
 # Add your model imports
 

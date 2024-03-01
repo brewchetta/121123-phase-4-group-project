@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Standard library imports
-from random import randint, choice as rc
+from random import randint, choice as rc 
 
 # Remote library imports
 from faker import Faker
@@ -15,35 +15,66 @@ platforms = ['Xbox One', 'Xbox Series X', 'PS4', 'PS5', 'PC', 'Nintendo Switch',
 online_status = ['online', 'offline', 'idle']
 people = ['Chett', 'Mohammad', 'Kash', 'Jaeem', 'Joe', 'Aaron', 'Anton', 'Daniel' ]
 video_games = ['Red Dead Redemption 2', 'God of War', 'Final Fantasy VII', 'The Last of Us', 'Minecraft', 'BioShock']
+allowed_ratings = [1, 2, 3, 4, 5]
 
 
 if __name__ == '__main__':
     fake = Faker()
     with app.app_context():
+        print("Clearing db")
+        Game.query.delete()
+        User.query.delete()
+        Rating.query.delete()
 
         print("Starting seed...")
         
-        u1 = User(username=people[0], password=fake.password(), date_of_birth=fake.date_of_birth(), favorite_platform =rc(platforms), online_status=rc(online_status), profile_picture=fake.paragraph(nb_sentences=1) )
-        u2 = User(username=people[1], password=fake.password(), date_of_birth=fake.date_of_birth(), favorite_platform =rc(platforms), online_status=rc(online_status), profile_picture=fake.paragraph(nb_sentences=1) )
-        u3 = User(username=people[2], password=fake.password(), date_of_birth=fake.date_of_birth(), favorite_platform =rc(platforms), online_status=rc(online_status), profile_picture=fake.paragraph(nb_sentences=1) )
-        u4 = User(username=people[3], password=fake.password(), date_of_birth=fake.date_of_birth(), favorite_platform =rc(platforms), online_status=rc(online_status), profile_picture=fake.paragraph(nb_sentences=1) )
-        u5 = User(username=people[4], password=fake.password(), date_of_birth=fake.date_of_birth(), favorite_platform =rc(platforms), online_status=rc(online_status), profile_picture=fake.paragraph(nb_sentences=1) )
-        u6 = User(username=people[5], password=fake.password(), date_of_birth=fake.date_of_birth(), favorite_platform =rc(platforms), online_status=rc(online_status), profile_picture=fake.paragraph(nb_sentences=1) )
-        u7 = User(username=people[6], password=fake.password(), date_of_birth=fake.date_of_birth(), favorite_platform =rc(platforms), online_status=rc(online_status), profile_picture=fake.paragraph(nb_sentences=1) )
-        u8 = User(username=people[7], password=fake.password(), date_of_birth=fake.date_of_birth(), favorite_platform =rc(platforms), online_status=rc(online_status), profile_picture=fake.paragraph(nb_sentences=1) )
-        users = [u1, u2, u3, u4, u5, u6, u7, u8]
-        db.session.add_all(users)
+        ###USER INSTANCES
+        def create_users():
+            users = [User(username=person, password=fake.password(), date_of_birth=fake.date_of_birth(), favorite_platform =rc(platforms), online_status=rc(online_status), profile_picture=fake.paragraph(nb_sentences=1) ) for person in people]
+            db.session.add_all(users)
+            db.session.commit()
+            return users
+
+        users = create_users()
         print("Creating Users")
 
-        def create_games():
-            for game in video_games:
-                new_game = Game(name=game, release_date=fake.date_of_birth(), image_url=fake.paragraph(nb_sentences=1), description=fake.paragraph(nb_sentences=5))
-                db.session.add(new_game)
-            
-        create_games()
-        db.session.commit()
 
+        ###GAME INSTANCES
+        def create_games():
+            games = [Game(name=game, release_date=fake.date_of_birth(), image_url=fake.paragraph(nb_sentences=1), description=fake.paragraph(nb_sentences=5)) for game in video_games]
+            db.session.add_all(games)
+            db.session.commit()
+            return games
+    
+        games = create_games()
         print("Creating Games")
+       
+        
+        ###RATINGS INSTANCES
+        def create_ratings():
+            rating_instances = []
+            for _ in range(10):
+                r = Rating(rating=rc(allowed_ratings), 
+                           comment=fake.paragraph(nb_sentences=2), 
+                           game_id=rc([game.id for game in games]), 
+                           user_id=rc([user.id for user in users]) )
+                rating_instances.append(r)
+            db.session.add_all(rating_instances)
+            db.session.commit()
+            return rating_instances
+        
+        ratings = create_ratings()
+        print("Creating Ratings")
+
+                
+
+
+        
+            
+
+        
+
+
 
         
 
