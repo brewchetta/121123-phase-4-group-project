@@ -7,7 +7,7 @@ from flask_restful import Api, Resource
 from models import db, User, Game, Rating
 
 # local imports
-from config import create_app, db
+from config import create_app, db, api
 
 # Add your model imports
 
@@ -118,6 +118,7 @@ def add_ratings():
     except:
         return {'error': "Invalid Data"}
     
+
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
 
