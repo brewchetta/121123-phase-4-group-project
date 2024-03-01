@@ -4,7 +4,7 @@
 from flask import request
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
-from models import db, User, Game, Rating
+from models import db, User, Game, Rating, GameGenre, GamePlatform, Platform
 
 # local imports
 from config import create_app, db, api
@@ -117,7 +117,18 @@ def add_ratings():
         return {'error': f'{error}'}, 406
     except:
         return {'error': "Invalid Data"}
-    
+
+@app.get('/platform')
+def get_platform():
+    all_platform = Platform.query.all()
+    return [ platform.to_dict() for platform in all_platform], 200
+
+@app.post('platform')
+def post_platform():
+    data = request.json
+
+    try:
+        new_platform = Platform(system_name=data.get('system_name'))
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
