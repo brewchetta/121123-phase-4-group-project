@@ -101,8 +101,6 @@ def get_ratings():
     all_ratings = Rating.query.all()
     return [ rating.to_dict() for rating in all_ratings], 200
 
-@app.get('/ratings/<int:id>')
-
 @app.post('/ratings')
 def add_ratings():
     data = request.json
@@ -123,13 +121,8 @@ def get_platform():
     all_platform = Platform.query.all()
     return [ platform.to_dict() for platform in all_platform], 200
 
-@app.post('platform')
-def post_platform():
-    data = request.json
-
-    try:
-        new_platform = Platform(system_name=data.get('system_name'))
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
 
+# ADD RULES AS NEEDED FOR THE ROUTES
