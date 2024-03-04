@@ -1,0 +1,77 @@
+{
+    "games": [
+      {
+        "id": 1,
+        "image_URL": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg",
+        "name": "The Legend of Zelda: Breath of the Wild",
+        "release_date": "2017-03-03",
+        "price": "59.99$",
+        "platform": "Nintendo Switch",
+        "description": "An action-adventure game set in an open world environment, where players control Link, who awakens from a long slumber to defeat Calamity Ganon before it can destroy the kingdom of Hyrule."
+      },
+      {
+        "id": 2,
+        "image_URL":"https://m.media-amazon.com/images/I/616+j9jEM4L._AC_UF894,1000_QL80_.jpg",
+        "name": "The Last of Us Part II",
+        "release_date": "2020-06-19",
+        "price": "49.99$",
+        "platform": "PlayStation 4",
+        "description": "A sequel to the critically acclaimed The Last of Us, following Ellie's journey through a post-apocalyptic United States as she seeks revenge against a cult."
+      },
+      {
+        "id": 3,
+        "image_URL":"https://assets.vg247.com/current//2018/05/red_dead_redemption_2_cover_art_1.jpg",
+        "name": "Red Dead Redemption 2",
+        "release_date": "2018-10-26",
+        "price": "59.99$",
+        "platform": "PlayStation 4, Xbox One, PC",
+        "description": "A Western-themed action-adventure game set in an open world environment, following the story of Arthur Morgan, a member of the Van der Linde gang."
+      },
+      {
+        "id": 4,
+        "image_URL":"https://assets.nintendo.com/image/upload/c_fill,w_1200/q_auto:best/f_auto/dpr_2.0/ncom/software/switch/70010000001130/c42553b4fd0312c31e70ec7468c6c9bccd739f340152925b9600631f2d29f8b5",
+        "name": "Super Mario Odyssey",
+        "release_date": "2017-10-27",
+        "price": "49.99$",
+        "platform": "Nintendo Switch",
+        "description": "A 3D platformer where Mario sets out on a globe-trotting adventure to save Princess Peach from Bowser's forced marriage plans."
+      },
+      {
+        "id": 5,
+        "image_URL":"https://cdnb.artstation.com/p/assets/covers/images/033/037/923/large/artur-tarnowski-artur-tarnowski-coverart-thumbnail.jpg?1608208435",
+        "name": "Cyberpunk 2077",
+        "release_date": "2020-12-10",
+        "price": "59.99$",
+        "platform": "PlayStation 4, Xbox One, PC",
+        "description": "An open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour, and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality."
+      },
+      {
+        "id": 6,
+        "image_URL":"https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg",
+        "name": "The Witcher 3: Wild Hunt",
+        "release_date": "2015-05-19",
+        "price": "39.99$",
+        "platform": "PlayStation 4, Xbox One, PC",
+        "description": "An action role-playing game set in an open world environment, players control Geralt of Rivia, a monster hunter known as a Witcher, searching for his missing adopted daughter."
+      },
+      {
+        "id": 7,
+        "image_URL":"https://upload.wikimedia.org/wikipedia/en/1/14/Halo_Infinite.png",
+        "name": "Halo: Infinite",
+        "release_date": "2021-12-08",
+        "price": "59.99$",
+        "platform": "Xbox Series X/S, Xbox One, PC",
+        "description": "The next installment in the iconic Halo series, featuring Master Chief as he confronts the most ruthless foe he's ever faced."
+      },
+      {
+        "id": 8,
+        "image_URL":"https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Tom_Clancy%27s_Rainbow_Six_Siege_cover_art.jpg/220px-Tom_Clancy%27s_Rainbow_Six_Siege_cover_art.jpg",
+        "name": "Tom Clancy's Rainbow Six Siege",
+        "release_date": "2015-12-01",
+        "price": "29.99$",
+        "platform": "PlayStation 4, Xbox One, PC",
+        "description": "A tactical shooter game where players assume control of an operator from the Rainbow team, a counter-terrorism unit. The game features intense close-quarters combat and a heavy emphasis on environmental destruction and team coordination."
+      }
+    ]
+  }
+  
