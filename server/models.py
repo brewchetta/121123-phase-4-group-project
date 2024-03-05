@@ -50,9 +50,8 @@ class Game(db.Model, SerializerMixin):
     platforms = association_proxy("game_platforms", "platform")
 
 
-    serialize_rules = ("-ratings.game", "user")
-    serialize_rules = ("-game_genres.game", "-genres")
-    serialize_rules = ("-game_platforms.game", "-platforms")
+    serialize_rules = ("-ratings.game", "-users", "-game_genres.game", "-genres", "-game_platforms.game", "-platforms")
+
 
 
 
@@ -126,7 +125,6 @@ class GamePlatform(db.Model, SerializerMixin):
     platform = db.relationship("Platform", back_populates="game_platforms")
 
     serialize_rules = ("-game.game_platforms", "-platform.game_platforms")
-    pass
 
     
 
