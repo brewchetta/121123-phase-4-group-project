@@ -16,7 +16,7 @@ function App() {
   const [bestSellersData, setBestSellersData] = useState([])
 
 
-  const baseURL = "http://localhost:8000/games"
+  const baseURL = "/games"
   const fetchURL = "http://localhost:7000/bestSellers"
 
 
@@ -26,11 +26,11 @@ function App() {
     .then(data => setGameData(data))
   }, []);
  
-  useEffect(() => {
-    fetch(fetchURL)
-    .then(res => res.json())
-    .then(data => setBestSellersData(data))
-  }, []);
+  // useEffect(() => {
+  //   fetch(fetchURL)
+  //   .then(res => res.json())
+  //   .then(data => setBestSellersData(data))
+  // }, []);
 
 
 
