@@ -72,6 +72,169 @@
         "platform": "PlayStation 4, Xbox One, PC",
         "description": "A tactical shooter game where players assume control of an operator from the Rainbow team, a counter-terrorism unit. The game features intense close-quarters combat and a heavy emphasis on environmental destruction and team coordination."
       }
-    ]
-  }
+    ],
+      "bestSellers": [
+        {
+          "id": 1,
+          "name": "Assassin's Creed Valhalla",
+          "release_date": "2020-11-10",
+          "price": 59.99,
+          "platform": "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC",
+          "description": "An action role-playing game set in the Viking Age, players control Eivor, a Viking raider, as they lead their clan to settle in England."
+        },
+        {
+          "id": 2,
+          "name": "Call of Duty: Warzone",
+          "release_date": "2020-03-10",
+          "price": 0.00,
+          "platform": "PlayStation 4, Xbox One, PC",
+          "description": "A free-to-play battle royale game set in the Call of Duty universe, featuring up to 150 players competing in squads to be the last team standing."
+        },
+        {
+          "id": 3,
+          "name": "FIFA 22",
+          "release_date": "2021-10-01",
+          "price": 59.99,
+          "platform": "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC",
+          "description": "A football simulation video game, featuring various game modes including career mode, ultimate team, and VOLTA football."
+        },
+        {
+          "id": 4,
+          "name": "Grand Theft Auto V",
+          "release_date": "2013-09-17",
+          "price": 29.99,
+          "platform": "PlayStation 4, PlayStation 3, Xbox One, Xbox 360, PC",
+          "description": "An action-adventure game set in the fictional state of San Andreas, players follow three criminals as they plan and execute a series of heists."
+        },
+        {
+          "id": 5,
+          "name": "Mortal Kombat 11",
+          "release_date": "2019-04-23",
+          "price": 49.99,
+          "platform": "PlayStation 4, Xbox One, Nintendo Switch, PC",
+          "description": "A fighting game featuring a roster of iconic characters from the Mortal Kombat series, known for its brutal combat and fatalities."
+        },
+        {
+          "id": 6,
+          "name": "Overwatch",
+          "release_date": "2016-05-24",
+          "price": 39.99,
+          "platform": "PlayStation 4, Xbox One, PC",
+          "description": "A team-based multiplayer first-person shooter game, players select from a diverse cast of heroes and work together to complete objectives."
+        },
+        {
+          "id": 7,
+          "name": "Fortnite",
+          "release_date": "2017-07-25",
+          "price": 0.00,
+          "platform": "PlayStation 4, Xbox One, Nintendo Switch, PC, Mobile",
+          "description": "A battle royale game where players fight to be the last one standing, featuring building mechanics and regular updates with new content."
+        },
+        {
+          "id": 8,
+          "name": "Doom Eternal",
+          "release_date": "2020-03-20",
+          "price": 59.99,
+          "platform": "PlayStation 4, Xbox One, PC",
+          "description": "A first-person shooter game, players assume the role of the Doom Slayer as they battle demonic forces from Hell across multiple dimensions."
+        },
+        {
+          "id": 9,
+          "name": "The Elder Scrolls V: Skyrim",
+          "release_date": "2011-11-11",
+          "price": 39.99,
+          "platform": "PlayStation 4, Xbox One, Nintendo Switch, PC",
+          "description": "An action role-playing game set in the fantasy world of Tamriel, players explore an open world filled with quests, dungeons, and dragons."
+        },
+        {
+          "id": 10,
+          "name": "Spider-Man: Miles Morales",
+          "release_date": "2020-11-12",
+          "price": 49.99,
+          "platform": "PlayStation 4, PlayStation 5",
+          "description": "An action-adventure game set in Marvel's New York City, players control Miles Morales as he masters his new powers and becomes Spider-Man."
+        },
+        {
+          "id": 11,
+          "name": "Monster Hunter: World",
+          "release_date": "2018-01-26",
+          "price": 39.99,
+          "platform": "PlayStation 4, Xbox One, PC",
+          "description": "An action role-playing game where players hunt down monsters in diverse environments, crafting gear from their remains."
+        },
+        {
+          "id": 12,
+          "name": "Pokémon Sword and Shield",
+          "release_date": "2019-11-15",
+          "price": 59.99,
+          "platform": "Nintendo Switch",
+          "description": "Role-playing games set in the Galar region, players embark on a journey to become the Champion while capturing and battling Pokémon."
+        },
+        {
+          "id": 13,
+          "name": "Destiny 2",
+          "release_date": "2017-09-06",
+          "price": 29.99,
+          "platform": "PlayStation 4, Xbox One, PC",
+          "description": "An online multiplayer first-person shooter game, players assume the role of Guardians, protectors of Earth's last safe city."
+        },
+        {
+          "id": 14,
+          "name": "The Sims 4",
+          "release_date": "2014-09-02",
+          "price": 39.99,
+          "platform": "PlayStation 4, Xbox One, PC",
+          "description": "A life simulation game, players create and control virtual people, build houses, and fulfill their needs and aspirations."
+        },
+        {
+          "id": 15,
+          "name": "League of Legends",
+          "release_date": "2009-10-27",
+          "price": 0.00,
+          "platform": "PC",
+          "description": "A multiplayer online battle arena game, players control a 'champion' with unique abilities and battle against a team of other players."
+        },
+        {
+          "id": 16,
+          "name": "Diablo III",
+          "release_date": "2012-05-15",
+          "price": 19.99,
+          "platform": "PlayStation 4, Xbox One, PC",
+          "description": "An action role-playing game set in the dark fantasy world of Sanctuary, players battle demons and other creatures while collecting loot."
+        },
+        {
+          "id": 17,
+          "name": "World of Warcraft",
+          "release_date": "2004-11-23",
+          "price": 14.99,
+          "platform": "PC",
+          "description": "A massively multiplayer online role-playing game, players explore the world of Azeroth, completing quests and battling monsters."
+        },
+        {
+          "id": 18,
+          "name": "Super Smash Bros. Ultimate",
+          "release_date": "2018-12-07",
+          "price": 59.99,
+          "platform": "Nintendo Switch",
+          "description": "A crossover fighting game featuring characters from various video game franchises, players battle in iconic arenas to be the last one standing."
+        },
+        {
+          "id": 19,
+          "name": "NBA 2K22",
+          "release_date": "2021-09-10",
+          "price": 59.99,
+          "platform": "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC",
+          "description": "A basketball simulation video game, featuring various game modes including MyCareer, MyTeam, and MyLeague."
+        },
+        {
+          "id": 20,
+          "name": "Resident Evil Village",
+          "release_date": "2021-05-07",
+          "price": 59.99,
+          "platform": "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC",
+          "description": "A survival horror game, players control Ethan Winters as he searches for his kidnapped daughter in a mysterious village."
+        }
+      ]
+    }
+    
   
