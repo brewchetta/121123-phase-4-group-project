@@ -9,16 +9,15 @@ from flask_cors import CORS
 # from flask_bcrypt import Bcrypt
 
 # local imports
-app = Flask(__name__)
 
-CORS(app)
-from config import create_app, db, api
+
+from config import create_app, db
 
 # Add your model imports
 
 # instantiate app
 app = create_app()
-
+CORS(app)
 # routes go here
 
 @app.route('/')
