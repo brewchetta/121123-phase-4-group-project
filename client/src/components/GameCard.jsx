@@ -3,7 +3,7 @@ import React from 'react';
 function GameCard( { game }) {
     return (
         <li className='card'>
-            <img className="card-image" src={game.image_URL} alt={"Game Cover"}/>
+            <img className="card-image" src={game.image_url} alt={"Game Cover"}/>
             <h2 className='name'>{game.name}</h2>
             <p>{game.release_date}</p>
             <p>{game.price}</p>

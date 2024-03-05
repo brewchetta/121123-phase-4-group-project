@@ -38,6 +38,9 @@ class Game(db.Model, SerializerMixin):
     release_date = db.Column(db.String)
     image_url = db.Column(db.String)
     description = db.Column(db.String)
+    price = db.Column(db.String)
+    bestseller = db.Column(db.Boolean, default=False)
+
 
     ratings = db.relationship("Rating", back_populates="game")
     users = association_proxy("ratings", "user")
@@ -51,9 +54,6 @@ class Game(db.Model, SerializerMixin):
 
 
     serialize_rules = ("-ratings.game", "-users", "-game_genres.game", "-genres", "-game_platforms.game", "-platforms")
-
-
-
 
 class Rating(db.Model, SerializerMixin):
     __tablename__ = "ratings_table"
