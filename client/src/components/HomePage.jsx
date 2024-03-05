@@ -16,7 +16,7 @@ function HomePage( { gameData }) {
     }
     
     function handleClick() {
-        navigate('/home')
+        navigate('/')
     }
      return(
         
@@ -41,7 +41,7 @@ function HomePage( { gameData }) {
                     />
             </div>
         <ul>
-            <li><a href="/platform">Platform </a></li>
+            <li><a href="/BestSellers">BestSellers</a></li>
             <li><a href="/forums">Forums </a></li>
             <li><a href="/oldSchool">Old School</a></li>
             <li><a href="/Genre">Genre</a></li>

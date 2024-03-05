@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import HomePage from './components/HomePage';
 import {Route, Routes} from "react-router-dom";
 import OldSchool from './components/OldSchool'; 
-import Platform from './components/Platform';
+import BestSellers from './components/BestSellers';
 import Register from './components/Register';
 import UpcomingReleases from './components/UpComingReleases'
 import Forums from './components/Forums'
@@ -13,8 +13,12 @@ import LoginPage from './components/LoginPage';
 function App() {
  
   const [gameData, setGameData] = useState([])
-  
+  const [bestSellersData, setBestSellersData] = useState([])
+
+
   const baseURL = "http://localhost:8000/games"
+  const fetchURL = "http://localhost:7000/bestSellers"
+
 
   useEffect(() => {
     fetch(baseURL)
@@ -22,13 +26,20 @@ function App() {
     .then(data => setGameData(data))
   }, []);
  
- 
+  useEffect(() => {
+    fetch(fetchURL)
+    .then(res => res.json())
+    .then(data => setBestSellersData(data))
+  }, []);
+
+
+
   return ( 
   <div>
         <Routes>
               <Route path="/" element={ <HomePage gameData={gameData}/>} />
               <Route path="/Login" element={<LoginPage/>} />
-              <Route path="/Platform" element={<Platform/>} />
+              <Route path="/BestSellers" element={<BestSellers bestSellersData={bestSellersData}/>} />
               <Route path="/Forums" element={<Forums/>} />
               <Route path="/OldSchool" element={<OldSchool/>} />
               <Route path="/Genre" element={<OldSchool/>} />
