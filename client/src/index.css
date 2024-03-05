@@ -5,3 +5,63 @@
   --text: hsla(0, 0%, 100%, 0.88);
 }
 
+.card {
+  max-width: 150px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #492b7c, #301551, #ed8a0a, #f6d912, #fff29c);
+  color: white;
+  height: 300px;
+  list-style: none;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 65vw;
+}
+
+.navbar{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+padding: 10px;
+}
+
+.navbar ul {
+height: 60px ;;
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
+list-style: none;
+margin-top: 0px;
+}
+
+.navbar li {
+margin: 10px;
+border: 1px solid black;
+border-radius: 15px ;
+padding: 5px;
+}
+
+.navbar a {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+
+}
+
+.card-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.name {
+  font-size: 13px;
+}
