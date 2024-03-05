@@ -1,10 +1,16 @@
 #!/usr/bin/env python3
+import json
 
 # Standard library imports
 from random import randint, choice as rc 
 
 # Remote library imports
 from faker import Faker
+f = open('db.json')
+
+data = json.load(f)
+
+json_games = data['games']
 
 # Local imports
 from app import app
@@ -47,9 +53,17 @@ if __name__ == '__main__':
 
         ###GAME INSTANCES
         def create_games():
-            games = [Game(name=game, release_date=fake.date_of_birth(), image_url=fake.paragraph(nb_sentences=1), description=fake.paragraph(nb_sentences=5)) for game in video_games]
+            
+            games = [Game(name=game['name'], release_date=game['release_date'], 
+            image_url=game['image_URL'], 
+            description=game['description'],
+            price=game['price'], 
+            bestseller=False) 
+            for game in json_games]
+            
             db.session.add_all(games)
             db.session.commit()
+            
             return games
     
         games = create_games()
@@ -120,6 +134,7 @@ if __name__ == '__main__':
         game_platforms = create_game_platforms()
         print("Creating Game Platforms")
 
+f.close()
 
         
 
