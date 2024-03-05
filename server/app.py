@@ -4,7 +4,7 @@
 from flask import request
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
-from models import db, User, Game, Rating
+from models import db, User, Game, Rating, Platform, GameGenre, Genre, GamePlatform
 
 # local imports
 from config import create_app, db

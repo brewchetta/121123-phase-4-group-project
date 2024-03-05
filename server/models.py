@@ -120,12 +120,13 @@ class GamePlatform(db.Model, SerializerMixin):
 
     id = db.Column(db.Integer, primary_key=True)
     game_id = db.Column(db.Integer, db.ForeignKey("games_table.id"))
-    platform_id = db.Column(db.Integer, db.ForeignKey("platforms_table"))
+    platform_id = db.Column(db.Integer, db.ForeignKey("platforms_table.id"))
 
     game = db.relationship("Game", back_populates="game_platforms")
     platform = db.relationship("Platform", back_populates="game_platforms")
 
     serialize_rules = ("-game.game_platforms", "-platform.game_platforms")
+    pass
 
     
 
