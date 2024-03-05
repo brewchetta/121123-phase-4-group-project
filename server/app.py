@@ -4,10 +4,9 @@
 from flask import request
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
-from models import db, User, Game, Rating, GameGenre, GamePlatform, Platform
+from models import db, User, Game, Rating, Platform, GameGenre, Genre, GamePlatform
 from flask_cors import CORS
 # from flask_bcrypt import Bcrypt
-
 
 # local imports
 app = Flask(__name__)
