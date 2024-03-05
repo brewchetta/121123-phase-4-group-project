@@ -1,12 +1,9 @@
 #!/usr/bin/env python3
 
 # library imports
-from flask import request
-from flask_migrate import Migrate
-from flask_restful import Api, Resource
+from flask import request, session
 from models import db, User, Game, Rating, Platform, GameGenre, Genre, GamePlatform
-from flask_cors import CORS
-# from flask_bcrypt import Bcrypt
+from flask_bcrypt import Bcrypt
 
 # local imports
 
@@ -17,7 +14,7 @@ from config import create_app, db
 
 # instantiate app
 app = create_app()
-CORS(app)
+bcrypt = Bcrypt(app)
 # routes go here
 
 @app.route('/')
@@ -26,31 +23,31 @@ def index():
 
 # Users Routes
 
-# @app.get(URL_PREFIX + '/check_session')
-# def check_session():
-#     user_id = session.get('user_id')
-#     user = User.query.where(User.id == user_id).first()
-#     if user:
-#         return user.to_dict(), 200
-#     else:
-#         return {}, 200
+@app.get('/check_session')
+def check_session():
+    user_id = session.get('user_id')
+    user = User.query.where(User.id == user_id).first()
+    if user:
+        return user.to_dict(), 200
+    else:
+        return {}, 200
     
-# @app.get(URL_PREFIX + '/login')
-# def login():
-#     data = request.json
-#     username = data['username']
-#     password = data['password']
-#     user = User.query.where(User.username == username).first()
-#     if user and bcrypt.check_password_hash(user.password, password):
-#         session['user_id'] = user.id
-#         return user.to_dict(), 201
-#     else:
-#         return {'error': 'Invalid username or password'}, 401
+@app.get('/login')
+def login():
+    data = request.json
+    username = data['username']
+    password = data['password']
+    user = User.query.where(User.username == username).first()
+    if user and bcrypt.check_password_hash(user.password, password):
+        session['user_id'] = user.id
+        return user.to_dict(), 201
+    else:
+        return {'error': 'Invalid username or password'}, 401
     
-# @app.delete(URL_PREFIX + '/logout')
-# def logout():
-#     session.pop('user_id')
-#     return {}, 204
+@app.delete('/logout')
+def logout():
+    session.pop('user_id')
+    return {}, 204
 
 
 @app.get('/users')
@@ -72,7 +69,8 @@ def add_users():
 
     try:
         new_user = User(
-            username=data.get('username'), password=data.get('password'), date_of_birth=data.get('date_of_birth'), favorite_platform=data.get('favorite_platform'), profile_picture=data.get('profile_picture'))
+            username=data.get('username'), date_of_birth=data.get('date_of_birth'), favorite_platform=data.get('favorite_platform'), profile_picture=data.get('profile_picture'))
+        new_user.password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
         db.session.add(new_user)
         db.session.commit()
         return new_user.to_dict(), 201

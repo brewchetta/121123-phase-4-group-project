@@ -54,9 +54,6 @@ class Game(db.Model, SerializerMixin):
 
 
     serialize_rules = ("-ratings.game", "-users", "-game_genres.game", "-genres", "-game_platforms.game", "-platforms")
-    
-
-
 
 class Rating(db.Model, SerializerMixin):
     __tablename__ = "ratings_table"
@@ -128,7 +125,6 @@ class GamePlatform(db.Model, SerializerMixin):
     platform = db.relationship("Platform", back_populates="game_platforms")
 
     serialize_rules = ("-game.game_platforms", "-platform.game_platforms")
-    pass
 
     
 
