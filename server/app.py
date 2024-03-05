@@ -5,8 +5,14 @@ from flask import request
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from models import db, User, Game, Rating, GameGenre, GamePlatform, Platform
+from flask_cors import CORS
+# from flask_bcrypt import Bcrypt
+
 
 # local imports
+app = Flask(__name__)
+
+CORS(app)
 from config import create_app, db, api
 
 # Add your model imports
@@ -21,6 +27,34 @@ def index():
     return '<h1>121123 Phase 4 Project/Product</h1>'
 
 # Users Routes
+
+# @app.get(URL_PREFIX + '/check_session')
+# def check_session():
+#     user_id = session.get('user_id')
+#     user = User.query.where(User.id == user_id).first()
+#     if user:
+#         return user.to_dict(), 200
+#     else:
+#         return {}, 200
+    
+# @app.get(URL_PREFIX + '/login')
+# def login():
+#     data = request.json
+#     username = data['username']
+#     password = data['password']
+#     user = User.query.where(User.username == username).first()
+#     if user and bcrypt.check_password_hash(user.password, password):
+#         session['user_id'] = user.id
+#         return user.to_dict(), 201
+#     else:
+#         return {'error': 'Invalid username or password'}, 401
+    
+# @app.delete(URL_PREFIX + '/logout')
+# def logout():
+#     session.pop('user_id')
+#     return {}, 204
+
+
 @app.get('/users')
 def get_users():
     all_users = User.query.all()
