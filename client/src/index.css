@@ -63,8 +63,48 @@ padding: 5px;
 }
 
 .name {
-  font-size: 13px;
+  font-size: 15px;
 }
+
+.ind-card {
+  max-width: 3000px;
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 15px;
+  background: linear-gradient(90deg, #492b7c, #301551, #ed8a0a, #f6d912, #fff29c);
+  color: white;
+  height: 750px;
+  list-style: none;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+
+}
+
+.ind-card-image {
+  width: 500px;
+  height: 600px;
+  object-fit: contain;
+}
+
+.desc {
+  font-size: 1.5em;
+  border: solid black 2px;
+  border-radius: 15px;
+  height: 200px;
+  width: 700px;
+  padding: 10px;
+} 
+
+.comment-section {
+  width:500px;
+  height: 300px;
+}
+
+.Form{
+  border: solid black 2px;
+  border-radius: 15px;
+  padding: 10px;
 
 .new-game-form {
   padding: 1rem;
