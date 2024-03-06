@@ -55,13 +55,13 @@ function HomePage( { gameData }) {
         <div style={styles.container}>
             <div className="card-container">
                 
-                { gameData.map(game => <GameCard key={game.id} game={game} /> )}
+                { gameData.slice(0, 10).map(game => <GameCard key={game.id} game={game} /> )}
             
             </div>
             
             <div style={styles.formContainer}>
             
-            <form onSubmit={handleLogin}>
+            <form className="Form"onSubmit={handleLogin}>
 
             <p>Register here to make an account to have access to the entire website.
             You will be able  to comment, like, and rate games, speak with others about 
@@ -103,9 +103,6 @@ function HomePage( { gameData }) {
         <button type='submit' style={styles.button}>Login</button>
             
         </form>
-           
-            
-           
            </div> 
            <footer style={styles.footer}>
                 <div style={styles.quote}>
