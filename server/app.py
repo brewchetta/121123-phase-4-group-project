@@ -32,7 +32,7 @@ def check_session():
     else:
         return {}, 200
     
-@app.get('/login')
+@app.post('/login')
 def login():
     data = request.json
     username = data['username']
