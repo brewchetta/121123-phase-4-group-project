@@ -105,4 +105,122 @@ padding: 5px;
   border: solid black 2px;
   border-radius: 15px;
   padding: 10px;
+
+.new-game-form {
+  padding: 1rem;
+  margin: 1rem;
+  height: 675px;
+  background-image: url(https://images.cointelegraph.com/cdn-cgi/image/format=auto,onerror=redirect,quality=90,width=1434/https://s3.cointelegraph.com/uploads/2023-04/07f9eded-4ec7-4c9e-b753-3ea9b9754b77.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 0;
+}
+
+
+.new-game-form h2 {
+  align-self: center;
+  line-height: 50px;
+  
+}
+
+.new-game-form form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.new-game-form input {
+  text-align: center;
+  margin-bottom: 2rem;
+  flex: 1;
+  width: 250px;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+textarea {
+  height: 200px;
+  resize: none;
+  border-radius: 10px;
+  border: 3px solid black;
+  padding: 5px;
+  text-align: center;
+}
+
+
+#create {
+  width: 200px;
+  height: 25px;
+  border: none;
+  outline: none;
+  color: black;
+  background: black;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  align-self: center;
+  margin-top: 15px;
+}
+
+#create:before {
+  content: '';
+  background: linear-gradient(90deg, white, black);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 30s linear infinite;
+  opacity: 0;
+  transition: opacity .1s ease-in-out;
+  border-radius: 10px;
+}
+
+#create:active {
+  color: black
+}
+
+#create:active:after {
+  background: transparent
+}
+
+#create:hover:before {
+  opacity: 1
+}
+
+#create:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0;}
+  100% { background-position: 0 0; }
 }
