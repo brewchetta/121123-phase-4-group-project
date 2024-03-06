@@ -6,6 +6,7 @@ import BestSellers from './components/BestSellers';
 import Register from './components/Register';
 import UpcomingReleases from './components/UpComingReleases'
 import Forums from './components/Forums'
+import NewGameForm from './components/NewGameForm';
 
 import './index.css';
 import LoginPage from './components/LoginPage';
@@ -43,7 +44,9 @@ function App() {
   //   .then(data => setBestSellersData(data))
   // }, []);
 
-
+  function updateGames(newGame) {
+    setGameData([...gameData, newGame])
+  }
 
   return ( 
   <div>
@@ -56,6 +59,7 @@ function App() {
               <Route path="/Genre" element={<OldSchool/>} />
               <Route path="/Register" element={<Register/>} />
               <Route path="/UpcomingReleases" element={<UpcomingReleases/>} />
+              <Route path="/NewGameForm" element={ <NewGameForm gameData={gameData} setGameData={setGameData} updateGames={updateGames}/>} />
       </Routes>    
    </div>
   )

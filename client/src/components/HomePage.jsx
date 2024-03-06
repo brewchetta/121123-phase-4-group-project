@@ -76,7 +76,8 @@ function HomePage( { gameData, currentUser, setCurrentUser }) {
             <li><a href="/oldSchool">Old School</a></li>
             <li><a href="/Genre">Genre</a></li>
             <li><a href="/UpcomingReleases">Upcoming Release</a></li>
-            <li ><a href="/Login">Login</a></li>
+            <li><a href="/NewGameForm">Add New Game</a></li>
+            <li><a href="/Login">Login</a></li>
             <li><a href="/Register">Register</a></li>
         </ul>
             </nav>

@@ -151,6 +151,37 @@ def get_platform():
     all_platform = Platform.query.all()
     return [ platform.to_dict() for platform in all_platform], 200
 
+@app.post('/NewGameForm')
+def create_game_form():
+    data = request.json
+    new_game = Game(name=data.get('name'), image_url=data.get('image_url'), release_date=data.get('release_date'), description=data.get('description'), price=data.get('price'))
+
+    db.session.add(new_game)
+
+    for genre_name in data.get('genre').split(','):
+        found_genre = Genre.query.where(Genre.name == genre_name.strip()).first()
+        if found_genre: 
+            new_join = GameGenre(game=new_game, genre=found_genre)
+            db.session.add(new_join)
+        else:
+            new_genre = Genre(name=genre_name.strip())
+            new_join = GameGenre(game=new_game, genre=new_genre)
+            db.session.add_all([new_genre, new_join])
+    
+    for platform_system_name in data.get('platform').split(','):
+        found_platform = Platform.query.where(Platform.system_name == platform_system_name.strip()).first()
+        if found_platform:
+            new_join = GamePlatform(game=new_game, platform=found_platform)
+            db.session.add(new_join)
+        else:
+            new_platform = Platform(system_name=platform_system_name.strip())
+            new_join = GamePlatform(game=new_game, platform=new_platform)
+            db.session.add_all([new_platform, new_join])
+
+    db.session.commit()
+    return new_game.to_dict(), 201
+        
+
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
