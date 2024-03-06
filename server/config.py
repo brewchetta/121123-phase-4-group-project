@@ -11,6 +11,7 @@ def create_app():
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    app.config['SECRET_KEY'] = '282597DB535D1589B2C5AB6C2B326'
     app.json.compact = False
 
     migrate = Migrate(app, db)

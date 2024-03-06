@@ -4,16 +4,44 @@ import logo from "../Logo.png"
 import GameCard from './GameCard'
 
 
-function HomePage( { gameData }) {
+
+function HomePage( { gameData, currentUser, setCurrentUser }) {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
 
-    const handleLogin = async (e) => {
+    console.log(currentUser)
+   
+
+   
+       
+    async function handleRegister(e) {
         e.preventDefault()
+        const new_user = {username, password}
+        const res = await fetch('/users', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              body: JSON.stringify(new_user)
+            })
+            if (res.ok) {
+              const data = await res.json()
+              setCurrentUser(data)
+            } else {
+              alert('Invalid sign up')
+            }
+            console.log("posted" + new_user)
+          }
+          function handleLogout() {
+        setCurrentUser(null)
+        fetch('/logout', { method: 'DELETE' })
+      }
+          
+        
+       
 
-    }
     
     function handleClick() {
         navigate('/')
@@ -21,6 +49,8 @@ function HomePage( { gameData }) {
      return(
         
         <div style={styles.homepageContainer}>
+            <p>Hello {currentUser?.username} </p>
+            <button  onClick={handleLogout}>Logout</button>
         
             <header style={styles.header}>
         
@@ -62,7 +92,7 @@ function HomePage( { gameData }) {
             
             <div style={styles.formContainer}>
             
-            <form onSubmit={handleLogin}>
+            <form onSubmit={handleRegister}>
 
             <p>Register here to make an account to have access to the entire website.
             You will be able  to comment, like, and rate games, speak with others about 
@@ -90,18 +120,8 @@ function HomePage( { gameData }) {
         />
         </label>
         
-        <label style={styles.label}>
-                Email:
-        <input 
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        style={styles.input}
-        required
-        />
-        </label>
-        
-        <button type='submit' style={styles.button}>Login</button>
+     
+        <button type='submit' style={styles.button}>Register</button>
             
         </form>
            

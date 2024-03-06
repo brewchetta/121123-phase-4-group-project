@@ -15,6 +15,7 @@ function App() {
  
   const [gameData, setGameData] = useState([])
   const [bestSellersData, setBestSellersData] = useState([])
+  const [currentUser, setCurrentUser] = useState({})
 
 
   const baseURL = "/games"
@@ -26,6 +27,16 @@ function App() {
     .then(res => res.json())
     .then(data => setGameData(data))
   }, []);
+
+  useEffect(() => {
+    fetch('/check_session')
+    .then(res => {
+      if (res.ok) {
+        res.json()
+        .then( data => setCurrentUser(data) )
+        }
+      })
+  }, [])
  
   // useEffect(() => {
   //   fetch(fetchURL)
@@ -40,8 +51,8 @@ function App() {
   return ( 
   <div>
         <Routes>
-              <Route path="/" element={ <HomePage gameData={gameData}/>} />
-              <Route path="/Login" element={<LoginPage/>} />
+              <Route path="/" element={ <HomePage gameData={gameData} currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+              <Route path="/Login" element={<LoginPage currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
               <Route path="/BestSellers" element={<BestSellers bestSellersData={bestSellersData}/>} />
               <Route path="/Forums" element={<Forums/>} />
               <Route path="/OldSchool" element={<OldSchool/>} />
