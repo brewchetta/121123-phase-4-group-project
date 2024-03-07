@@ -136,12 +136,13 @@ const styles = {
         fontFamily: 'Comic Sans MS',
         color: '#FFFFFF'
     },
+
     container: {
         display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'top',
-        justifyContent: 'space-between',
-        height: '50vh',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
         gridTemplateColumns: '1fr 1fr'
     },
       heading: {
@@ -151,35 +152,33 @@ const styles = {
         marginBottom: '15px',
     },
       formContainer: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        width: '300px',
+        width: '250px',
         padding: '20px',
-        borderRadius: '30px',
+        borderRadius: '10px',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-        height: '480px'
+        margin: '0 auto',
     },
       label: {
         display: 'block',
-        margin: '15px 0',
-        color: '#2C3A47', 
+        margin: '10px 0',
+        color: '#2C3A47',
+        textAlign: 'center' 
     },
       input: {
-        width: '90%',
-        padding: '12px',
+        width: '20%',
+        padding: '8px',
         borderRadius: '5px',
         border: '1px solid #95A5A6', 
-        marginBottom: '20px',
-        fontSize: '1em',
+        marginBottom: '10px',
+        fontSize: '0.9em',
     },
       button: {
         width: '100%',
-        padding: '12px',
+        padding: '10px',
         borderRadius: '5px',
         background: '#FF6B6B',
         color: '#FFF', 
         cursor: 'pointer',
-        fontSize: '1em',
+        fontSize: '0.9em',
     }
 };

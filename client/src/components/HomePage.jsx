@@ -166,6 +166,7 @@ const styles = {
         top: '20px',
         right: '20px',
     },
+
     ul: {
         listStyle: 'none',
         padding: 0,
@@ -178,15 +179,15 @@ const styles = {
         marginRight: '10px',
         fontSize: '1.3em',
         color: '#FFFFFF',
-    
     },
+
     a: {
         textDecoration: 'none',
         borderBottom: 'none',
         background: 'none',
         outline: 'none',
+        color: 'var(--text)',
     },
-
     
     quote: {
         fontSize: '25px',
@@ -199,7 +200,8 @@ const styles = {
         alignItems: 'top',
         justifyContent: 'space-between',
         height: '50vh',
-        gridTemplateColumns: '1fr 1fr'
+        gridTemplateColumns: '1fr 1fr',
+        
     },
       heading: {
         fontFamily: 'cursive',
@@ -211,11 +213,12 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        border: '2px solid black',
         width: '300px',
         padding: '20px',
         borderRadius: '30px',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-        height: '480px'
+        height: '480px', 
     },
       label: {
         display: 'block',
