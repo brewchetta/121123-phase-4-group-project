@@ -47,8 +47,21 @@ margin: 10px;
 border: 1px solid black;
 border-radius: 15px ;
 padding: 5px;
+display: inline-block;
+transition: all 0.3s ease;
+cursor: pointer;
+background-color: white;
+color: black;
+text-align: center;
 }
 
+.navbar li:hover {
+  background-color: #f6d912;
+  border-color: #0600b3;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: trasnlateY(-2px);
+}
 .navbar a {
   text-decoration: none;
   font-size: 20px;
@@ -150,8 +163,6 @@ header {
   width: 100%;
   z-index: 1;
 }
-
-
 
 textarea {
   height: 200px;

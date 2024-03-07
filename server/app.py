@@ -99,7 +99,7 @@ def post_games():
     data = request.json
 
     try:
-        new_games = Game(name=data.get('name'), release_date=data.get('release_date'), image_url=data.get('image_url'), description=data.get('description'))
+        new_games = Game(name=data.get('name'), release_date=data.get('release_date'), image_url=data.get('image_url'), description=data.get('description'), price=data.get('price'))
         db.session.add(new_games)
         db.session.commit()
         return new_games.to_dict(), 200
