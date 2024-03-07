@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import logo from "../Logo.png"
 import { useNavigate } from 'react-router-dom';
 
-function GameDetails( { currentUser}) {
+function GameDetails() {
     let { gameId } = useParams()
    
 
@@ -12,20 +12,13 @@ function GameDetails( { currentUser}) {
     const navigate = useNavigate(); 
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
-    console.log(comments)
-
-
     
 
     useEffect(() => {
         fetch(baseURL)
         .then(res => res.json())
-        .then(data => { 
-            setGame(data)
-            setComments(data.ratings.map((rating) => rating.comment)) 
-        })
+        .then(data => setGame(data))
     }, []);
-    console.log(game)
 
     function handleClick() {
         navigate('/')
@@ -37,9 +30,9 @@ function GameDetails( { currentUser}) {
 
     async function handleSubmit (event) {
         event.preventDefault()
-        
+         setComments([...comments, comment]);
          setComment('');
-        const new_comment = { comment, game_id:gameId, user_id:currentUser.id } 
+        const new_comment = { comment, game_id, user_id } 
         const res = await fetch('/ratings', {
             method: 'POST',
             headers: {
@@ -50,7 +43,7 @@ function GameDetails( { currentUser}) {
     })    
      if (res.ok) {
          const data = await res.json()
-         setComments([...comments, data.comment]);
+         setComments(data)
        } else {
          alert('Invalid comment')
        }

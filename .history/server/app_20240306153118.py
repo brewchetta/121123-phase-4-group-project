@@ -99,7 +99,7 @@ def post_games():
     data = request.json
 
     try:
-        new_games = Game(name=data.get('name'), release_date=data.get('release_date'), image_url=data.get('image_url'), description=data.get('description'), price=data.get('price'))
+        new_games = Game(name=data.get('name'), release_date=data.get('release_date'), image_url=data.get('image_url'), description=data.get('description'))
         db.session.add(new_games)
         db.session.commit()
         return new_games.to_dict(), 200
@@ -136,7 +136,7 @@ def add_ratings():
     data = request.json
 
     try:
-        new_rating = Rating(rating=data.get('rating'), comment=data.get('comment'), game_id=data.get('game_id'), user_id=data.get('user_id'))
+        new_rating = Rating(rating=data.get('rating'), comment=data.get('comment'))
         db.session.add(new_rating)
         db.session.commit()
         return new_rating.to_dict(), 201

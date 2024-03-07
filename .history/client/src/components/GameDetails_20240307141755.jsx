@@ -20,12 +20,8 @@ function GameDetails( { currentUser}) {
     useEffect(() => {
         fetch(baseURL)
         .then(res => res.json())
-        .then(data => { 
-            setGame(data)
-            setComments(data.ratings.map((rating) => rating.comment)) 
-        })
+        .then(data => setGame(data))
     }, []);
-    console.log(game)
 
     function handleClick() {
         navigate('/')
@@ -37,7 +33,7 @@ function GameDetails( { currentUser}) {
 
     async function handleSubmit (event) {
         event.preventDefault()
-        
+        //  setComments([...comments, comment]);
          setComment('');
         const new_comment = { comment, game_id:gameId, user_id:currentUser.id } 
         const res = await fetch('/ratings', {
@@ -50,7 +46,7 @@ function GameDetails( { currentUser}) {
     })    
      if (res.ok) {
          const data = await res.json()
-         setComments([...comments, data.comment]);
+          console.log(data)
        } else {
          alert('Invalid comment')
        }
