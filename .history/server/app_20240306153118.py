@@ -136,7 +136,7 @@ def add_ratings():
     data = request.json
 
     try:
-        new_rating = Rating(rating=data.get('rating'), comment=data.get('comment'), game_id=data.get('game_id'), user_id=data.get('user_id'))
+        new_rating = Rating(rating=data.get('rating'), comment=data.get('comment'))
         db.session.add(new_rating)
         db.session.commit()
         return new_rating.to_dict(), 201
