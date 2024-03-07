@@ -1,7 +1,9 @@
 import {useState} from "react";
+import {useNavigate} from 'react-router-dom'
 
 
 function NewGameForm({setGameData, gameData, updateGames}) {
+    const navigate = useNavigate()
     const [formValues, setFormValues] = useState({
         name: "",
         genre: "",
@@ -34,7 +36,7 @@ function NewGameForm({setGameData, gameData, updateGames}) {
         })
         .then((res) => {
             if (res.ok) {
-                window.location.href = "/";
+                navigate('/');
             } else {
                 throw new Error('Failed to submit the form')
             }
