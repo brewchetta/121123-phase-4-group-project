@@ -20,12 +20,8 @@ function GameDetails( { currentUser}) {
     useEffect(() => {
         fetch(baseURL)
         .then(res => res.json())
-        .then(data => { 
-            setGame(data)
-            setComments(data.ratings.map((rating) => rating.comment)) 
-        })
+        .then(data => setGame(data), setComment(data.ratings[comment]))
     }, []);
-    console.log(game)
 
     function handleClick() {
         navigate('/')
