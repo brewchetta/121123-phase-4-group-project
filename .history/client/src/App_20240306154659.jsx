@@ -56,7 +56,7 @@ function App() {
               <Route path="/Genre" element={<OldSchool/>} />
               <Route path="/Register" element={<Register currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
               <Route path="/UpcomingReleases" element={<UpcomingReleases/>} />
-              <Route path="/GameDetails/:gameId" element = {<GameDetails currentUser={currentUser}/> } />
+              <Route path="/GameDetails/:gameId" element = {<GameDetails/> } />
               <Route path="/NewGameForm" element={ <NewGameForm gameData={gameData} setGameData={setGameData} updateGames={updateGames}/>} />
       </Routes>    
    </div>

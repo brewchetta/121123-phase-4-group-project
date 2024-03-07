@@ -86,7 +86,7 @@ function HomePage( { gameData, currentUser, setCurrentUser }) {
         <div style={styles.container}>
             <div className="card-container">
                 
-                { gameData.slice(0, 10).map(game => <GameCard key={game.id} game={game} /> )}
+                { gameData.slice(gameData.length-10, gameData.length).map(game => <GameCard key={game.id} game={game} /> )}
             
             </div>
             
