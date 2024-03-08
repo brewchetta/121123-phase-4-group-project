@@ -48,7 +48,7 @@ function HomePage( { gameData, currentUser, setCurrentUser }) {
     }
      return(
         
-        <div style={styles.homepageContainer}>
+        <div className="homepageContainer" style={styles.homepageContainer}>
             <p>Hello {currentUser?.username} </p>
             <button  onClick={handleLogout}>Logout</button>
         
@@ -59,7 +59,7 @@ function HomePage( { gameData, currentUser, setCurrentUser }) {
     <div style={{
               display: "flex", flexDirection: "row"
             }}>
-                <h1 style={{color: "black"}}>Controller In hand</h1>
+                <h1 style={{color: "white"}}>Controller In hand</h1>
                 <img
                 onClick={handleClick} 
                 src={logo} 
@@ -213,17 +213,18 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        border: '2px solid black',
+        border: '2px solid white',
         width: '300px',
         padding: '20px',
         borderRadius: '30px',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
         height: '480px', 
+        color: 'white',
     },
       label: {
         display: 'block',
         margin: '15px 0',
-        color: '#2C3A47', 
+        color: 'white', 
     },
       input: {
         width: '90%',

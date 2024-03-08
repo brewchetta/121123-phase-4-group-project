@@ -5,6 +5,13 @@
   --text: hsla(0, 0%, 100%, 0.88);
 }
 
+.homepageContainer {
+  background-image: url('https://img.freepik.com/free-photo/illustration-cosmic-background-with-orange-neon-laser-lights_181624-19567.jpg?w=1380&t=st=1709911715~exp=1709912315~hmac=431542c5544e7ef72662ddba005f5a74c8441ff7b7d06becc30a9a7fb4199596');
+  background-size: cover;
+  opacity: 0.9;
+  color: white;
+}
+
 .card {
   max-width: 150px;
   margin: 20px;
@@ -39,8 +46,6 @@ display: flex;
 flex-direction: row;
 justify-content: space-between;
 padding: 10px;
-border: 2px solid #FF6B6B;
-border-radius: 10px;
 }
 
 .navbar ul {
@@ -141,6 +146,7 @@ text-align: center;
   flex-direction: column;
   position: relative;
   z-index: 0;
+  border: solid black;
 }
 
 
@@ -187,21 +193,20 @@ textarea {
 #create {
   width: 200px;
   height: 25px;
-  border: none;
   outline: none;
   color: black;
   background: black;
   cursor: pointer;
   position: relative;
   z-index: 0;
-  border-radius: 10px;
+  border-radius: 20px;
   align-self: center;
   margin-top: 15px;
 }
 
 #create:before {
   content: '';
-  background: linear-gradient(90deg, white, black);
+  background: linear-gradient(90deg, #492b7c, #301551, #ed8a0a, #f6d912, #fff29c);
   position: absolute;
   top: -2px;
   left: -2px;

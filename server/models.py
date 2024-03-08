@@ -28,6 +28,20 @@ class User(db.Model, SerializerMixin):
 
     serialize_rules = ("-ratings.user", "-game")
 
+    @validates("username")
+    def validates_username(self, key, username):
+        if len(username) > 1:
+            return username
+        else:
+            raise ValueError("Username must be at least 1 character")
+    
+    @validates("password")
+    def validates_password(self, key, password):
+        if password and len(password) > 1:
+            return password
+        else:
+            raise ValueError("Password must be present and have at least 1 character")
+
 
 
 class Game(db.Model, SerializerMixin):
@@ -54,6 +68,13 @@ class Game(db.Model, SerializerMixin):
 
 
     serialize_rules = ("-ratings.game", "-users", "-game_genres.game", "-genres", "-game_platforms.game", "-platforms")
+
+    @validates("name")
+    def validates_name(self, key, name):
+        if len(name) > 1:
+            return name
+        else:
+            raise ValueError("Game title must be at least 1 character")
 
 class Rating(db.Model, SerializerMixin):
     __tablename__ = "ratings_table"
